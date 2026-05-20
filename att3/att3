@@ -1,0 +1,77 @@
+# EX1
+# Use a função type() para verificar
+# o tipo da variável "ano" com valor 2024.
+ano = 2024
+print(type(ano))
+
+# EX2
+# Verifique se o número 3.14159
+# é do tipo float usando isinstance().
+numero = 3.14159
+print(isinstance(numero, float))
+
+# EX4
+# Use isinstance() para verificar
+# se True pode ser considerado int.
+print(isinstance(True, int))
+
+# EX5
+# Verifique se o resultado de 5/2
+# é do tipo float usando type() e isinstance().
+resultado = 5 / 2
+
+# Verificação com type()
+print(type(resultado))
+
+# Verificação com isinstance()
+print(isinstance(resultado, float))
+
+# EX6
+# Crie uma função que recebe um valor
+# e imprime "É número!" se for int, float ou complex.
+def verificar_numero(valor):
+    if isinstance(valor, (int, float, complex)):
+        print("É número!")
+
+# Exemplos de teste:
+verificar_numero(10)       # Inteiro
+verificar_numero(3.14)     # Float
+verificar_numero(2 + 3j)   # Complexo
+
+# EX7
+# Compare type() e isinstance()
+# para verificar se um booleano
+# é considerado inteiro.
+valor = True
+
+# Verificação com isinstance()
+print("isinstance:", isinstance(valor, int))
+
+# Verificação com type()
+print("type:", type(valor) == int)
+
+# EX8
+# Descubra o tipo do número 3+4j
+# usando type().
+numero = 3 + 4j
+print(type(numero))
+
+# EX9
+# Verifique se o valor None
+# é do tipo NoneType usando isinstance().
+# No Python, o tipo de None deve ser acessado via type(None)
+NoneType = type(None)
+
+print(isinstance(None, NoneType))
+
+# EX10
+# Verifique se o número 3.0
+# é int, float ou complex usando isinstance()
+# e depois teste especificamente se é int.
+numero = 3.0
+
+# 1. Verifica se é int, float ou complex
+print(isinstance(numero, (int, float, complex)))
+
+# 2. Teste específico para saber se é int
+print(isinstance(numero, int))
