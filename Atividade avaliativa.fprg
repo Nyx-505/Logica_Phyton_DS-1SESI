@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="AtividADE AVALIATIVA"/>
+        <attribute name="authors" value="Aluno"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-06-10 03:23:07 "/>
+        <attribute name="created" value="QWx1bm87RFNOMTIyMTI3Mzg3OTsyMDI2LTA2LTEwOyIwODozMjozNiAiOzI0NTY="/>
+        <attribute name="edited" value="QWx1bm87RFNOMTIyMTI3Mzg3OTsyMDI2LTA2LTEwOyIwMzoxMzo0MiAiOzQ7MjU1OA=="/>
+        <attribute name="edited" value="QWx1bm87RFNOMTIyMTI3Mzg2NDsyMDI2LTA2LTEwOyIwMzoyMzowNyAiOzE7MjU1MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="peso" type="Integer" array="False" size=""/>
+            <declare name="pacote" type="Integer" array="False" size=""/>
+            <declare name="internacional" type="String" array="False" size=""/>
+            <declare name="contagem" type="Real" array="False" size=""/>
+            <declare name="ticketmedio" type="Real" array="False" size=""/>
+            <declare name="frete" type="Real" array="False" size=""/>
+            <declare name="totalCarga" type="Real" array="False" size=""/>
+            <assign variable="totalCarga" expression="0"/>
+            <declare name="totalFaturamento" type="Real" array="False" size=""/>
+            <assign variable="totalFaturamento" expression="0"/>
+            <declare name="Custo" type="Real" array="False" size=""/>
+            <for variable="contagem" start="0" end="9" direction="inc" step="1">
+                <output expression="&quot;Insira o peso da carga &quot;" newline="True"/>
+                <input variable="peso"/>
+                <if expression="peso &gt; 0">
+                    <then>
+                        <if expression="peso &lt;= 2">
+                            <then>
+                                <output expression="&quot;Peso leve, o valor fixo &#233;: &quot;" newline="True"/>
+                                <output expression="&quot;R$ 10.00&quot;" newline="True"/>
+                                <assign variable="Custo" expression="10"/>
+                            </then>
+                            <else>
+                                <if expression="peso &lt;= 10">
+                                    <then>
+                                        <output expression="&quot;Peso padr&#227;o, o valor fixo &#233;: &quot;" newline="True"/>
+                                        <output expression="&quot;R$ 20.00&quot;" newline="True"/>
+                                        <assign variable="Custo" expression="20"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                                <if expression="peso &gt; 10">
+                                    <then>
+                                        <output expression="&quot;Peso pesado, o valor fixo &#233;: &quot;" newline="True"/>
+                                        <output expression="&quot;R$ 30.00&quot;" newline="True"/>
+                                        <assign variable="Custo" expression="30"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                        <output expression="&quot;Internacional?&quot;" newline="True"/>
+                        <input variable="internacional"/>
+                        <if expression="internacional == &quot;sim&quot;">
+                            <then>
+                                <assign variable="Custo" expression="Custo + (Custo * 0.20)"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="totalCarga" expression="totalCarga + peso"/>
+                <assign variable="totalFaturamento" expression="totalFaturamento + Custo"/>
+            </for>
+            <assign variable="ticketmedio" expression="totalFaturamento / 10"/>
+            <output expression="&quot;Resultado Final&quot;" newline="True"/>
+            <output expression="&quot;Total de pacotes: &quot; &amp; contagem" newline="True"/>
+            <output expression="&quot;Faturamento bruto do lote: &quot; &amp; totalFaturamento" newline="True"/>
+            <output expression="&quot;Carga total acumulada: &quot; &amp; totalCarga" newline="True"/>
+            <output expression="&quot;Ticket m&#233;dio por pacote: &quot; &amp; ticketmedio" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
